@@ -36,3 +36,24 @@ Sales_data add(const Sales_data &, const Sales_data &);
 std::ostream &print(std::ostream &, const Sales_data &);
 std::istream &read(std::istream &, Sales_data &);
 
+// read 从给定流中将数据读取到对象（IO类不能被拷贝，只能使用引用的方式来传递）
+std::istream &read(std::istream &is, Sales_data &item){
+    double price = 0;
+    is >> item.bookNo >> item.units_sold >> price;
+    item.revenue = price * item.units_sold;
+    return is;
+}
+
+// print 负责将给定对象的内容打印到给定的流中，不负责换行，减少对格式的控制
+std::ostream &print(std::ostream &os, const Sales_data &item){
+    os << item.isbn() << " " << item.units_sold << " " 
+    << item.revenue << " " << item.avg_price();
+    return os;
+}
+
+// add 对两个Sales_data对象求和
+Sales_data add(const Sales_data &lhs, const Sales_data &rhs){
+    Sales_data sum = lhs;
+    sum.combine(rhs);
+    return sum;
+}
