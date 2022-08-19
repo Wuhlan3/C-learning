@@ -16,7 +16,9 @@ vector<noDefault> v1(10, init);     //正确：提供了元素初始化器
 vector<noDefault> v2(10, init);     //错误：必须提供一个元素初始化器
 ```
 
-一些以前少用的操作：
+标准库提供了三种顺序容器适配器：stack、queue和priority_queue，每个适配器都在其底层顺序容器类型之上定义了一个新的接口。
+
+### 一些以前少用的操作
 ```
 a.swap(b)   //交换a和b的元素
 swap(a,b)   //同a.swap(b)
