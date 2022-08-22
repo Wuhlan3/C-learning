@@ -3,7 +3,7 @@
 ### 一、构造函数的初始值有时候必不可少
 如果成员是const，引用，或者属于某种未提供默认构造函数的类类型，我们必须使用初始值列表为这些成员提供初值。比如：
 
-```
+``` c++
 class ConstRef{
 public:
     ConstRef(int ii);
@@ -15,10 +15,10 @@ private:
 
 
 ConstRef::ConstRef(int ii) : i(ii), ci(ii), ri(i){} 
-```
+``` 
 ### 二、成员初始化的顺序
 成员初始化顺序与成员在类定义中的顺序一致。比如：
-```
+``` c++
 class X{
     int i;
     int j;
@@ -39,7 +39,7 @@ public:
 - 没有基类，也没有virtual函数。
 
 比如：
-```
+``` c++
 struct Data{
     int ival;
     stirng s;
